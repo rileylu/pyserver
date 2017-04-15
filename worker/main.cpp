@@ -3,6 +3,7 @@
 #include <cassert>
 #include <string>
 #include <iostream>
+#include <sstream>
 
 int main(int argc, char *argv[])
 {
@@ -21,8 +22,9 @@ int main(int argc, char *argv[])
         {
             std::string s{static_cast<char*>(msg)};
             s.erase(bytes);
-            std::cout<<name<<" : "<<s<<std::endl;
-            nn_send(sock,msg,bytes,0);
+            s.insert(0,name+", ");
+            std::cout<<s<<std::endl;
+            nn_send(sock,s.c_str(),s.size(),0);
         }
     }
 }
