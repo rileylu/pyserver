@@ -71,3 +71,11 @@ Thumbs.db
 *.dll
 *.exe
 
+ipch/
+pyserver.VC.db
+pyserver.VC.VC.opendb
+pyserver/x64/Debug/
+reqrep_device/x64/Debug/
+reqrep_deviceTest/x64/Debug/
+TestResults/
+x64/Debug/
