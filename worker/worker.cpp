@@ -1,14 +1,12 @@
+#include "worker.h"
 #include <nanomsg/nn.h>
 #include <nanomsg/reqrep.h>
 #include <cassert>
 #include <string>
 #include <iostream>
-#include <sstream>
 
-int main(int argc, char *argv[])
+void worker(const std::string& name)
 {
-    std::string name;
-    std::cin>>name;
 
     int sock=nn_socket(AF_SP,NN_REP);
     assert(sock>=0);
@@ -21,6 +19,7 @@ int main(int argc, char *argv[])
         if(bytes>0)
         {
             std::string s{static_cast<char*>(msg)};
+			nn_freemsg(msg);
             s.erase(bytes);
             s.insert(0,name+", ");
             std::cout<<s<<std::endl;

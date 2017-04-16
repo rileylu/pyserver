@@ -1,18 +1,19 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
+#include <string>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace reqrep_deviceTest
+namespace workerTest
 {		
 	TEST_CLASS(UnitTest1)
 	{
 	public:
 		
-		TEST_METHOD(TestReqrep_device)
+		TEST_METHOD(TestWorker)
 		{
-			// TODO: Your test code here
-			reqrep_device();
+			worker("worker1");
 		}
+
 	};
 }

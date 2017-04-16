@@ -79,3 +79,6 @@ reqrep_device/x64/Debug/
 reqrep_deviceTest/x64/Debug/
 TestResults/
 x64/Debug/
+pyscripts/.idea/
+worker/x64/Debug/
+workerTest/x64/Debug/

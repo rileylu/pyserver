@@ -4,7 +4,7 @@
 #include <cassert>
 #include <iostream>
 
-void API reqrep_device()
+void reqrep_device()
 {
 	int rep = nn_socket(AF_SP_RAW,NN_REP);
 	assert(rep>=0);
