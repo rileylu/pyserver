@@ -1,4 +1,4 @@
-TEMPLATE = app
+TEMPLATE = lib
 CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
@@ -6,4 +6,8 @@ CONFIG -= qt
 INCLUDEPATH += /usr/local/include
 LIBS += -L/usr/local/lib -lnanomsg
 
-SOURCES += main.cpp
+SOURCES += \
+    reqrep_device.cpp
+
+HEADERS += \
+    reqrep_device.h

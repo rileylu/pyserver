@@ -1,4 +1,2 @@
 #pragma once
-
-
-void __declspec(dllexport) reqrep_device();
+void reqrep_device();
