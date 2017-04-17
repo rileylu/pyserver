@@ -146,6 +146,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\reqrep_device\reqrep_device.vcxproj">
+      <Project>{e2a4cdc2-3138-4d01-8230-fb263d5e7028}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\worker\worker.vcxproj">
+      <Project>{61288b32-7852-4155-a24b-27f0f8385f7b}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
