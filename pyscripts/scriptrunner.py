@@ -1,13 +1,11 @@
-from worker import Runner
 from worker import PyWorker
+from runner import Runner
 
 
 class ScriptRunner(Runner):
-    def run(self):
-        while True:
-            msg = super(ScriptRunner, self)._sock.recv()
-            print("%s,%s" % (super(ScriptRunner, self)._name, msg))
-            super(ScriptRunner, self)._sock.send(msg)
+    def _run(self, req):
+        print(req)
+        return req
 
 
 if __name__ == '__main__':

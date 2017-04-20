@@ -1,3 +1,7 @@
 device/x64/Debug/
 pyscripts/.idea/
 pyserver/x64/Debug/
+pyscripts/__pycache__/
+x64/Debug/
+pyserver.VC.db
+pyserver.VC.VC.opendb
