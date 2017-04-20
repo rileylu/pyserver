@@ -5,13 +5,12 @@ import threading
 
 
 class PyWorker:
-    def __init__(self, worker_id):
+    def __init__(self, worker_id, runner):
         self._id = worker_id
         self._threads = []
         try:
             for i in range(cpu_count()):
-                name = "[%s][thread%d]" % (self._id, i)
-                self._threads.append(threading.Thread(target=WorkerRunner(name, "tcp://localhost:5557").run))
+                self._threads.append(threading.Thread(target=runner.run))
         except Exception:
             traceback.print_exc()
             raise
@@ -23,7 +22,7 @@ class PyWorker:
             t.join()
 
 
-class WorkerRunner:
+class Runner:
     def __init__(self, name, url):
         try:
             self._name = name
@@ -38,18 +37,7 @@ class WorkerRunner:
             self._sock.close()
 
     def run(self):
-        if self._sock.is_open():
-            try:
-                while True:
-                    msg = self._sock.recv()
-                    print("%s,%s" % (self._name, msg))
-                    self._sock.send(msg)
-            except nn.NanoMsgError:
-                traceback.print_exc()
-                raise
-
-        else:
-            raise "socket error"
+        pass
 
 
 if __name__ == '__main__':
