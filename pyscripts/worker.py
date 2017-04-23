@@ -4,12 +4,12 @@ import threading
 
 
 class PyWorker:
-    def __init__(self, worker_id, runner, url):
+    def __init__(self, worker_id, runner):
         self._id = worker_id
         self._threads = []
         try:
             for i in range(cpu_count()):
-                self._threads.append(threading.Thread(target=runner(url)))
+                self._threads.append(threading.Thread(target=runner))
         except Exception:
             traceback.print_exc()
             raise

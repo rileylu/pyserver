@@ -9,6 +9,6 @@ class ScriptRunner(Runner):
 
 
 if __name__ == '__main__':
-    r = ScriptRunner()
-    p = PyWorker(worker_id="worker1", runner=r, url="tcp://localhost:5557")
+    r = ScriptRunner("tcp://localhost:5557")
+    p = PyWorker(worker_id="worker1", runner=r)
     p.run()
