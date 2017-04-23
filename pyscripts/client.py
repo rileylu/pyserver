@@ -2,6 +2,8 @@ import nanomsg as nn
 import traceback
 from time import sleep
 
+from proto.pyscript_pb2 import *
+
 name = str(input())
 sleep_for = int(input())
 
@@ -10,9 +12,12 @@ try:
     sock.connect("tcp://localhost:5556")
     i = 0
     while True:
-        msg = "%s,%d" % (name, i)
-        sock.send(msg)
-        print(sock.recv())
+        req = Request()
+        req.script = "print('haha')"
+        sock.send(req.SerializeToString())
+        rep = Response()
+        rep.ParseFromString(sock.recv())
+        print(rep.result)
         i += 1
         sleep(sleep_for)
 except nn.NanoMsgError:
